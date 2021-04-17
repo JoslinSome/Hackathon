@@ -129,8 +129,18 @@ class MyApp(MDApp):
         self.listView.add_widget(self.list4)
         self.scrollSearch.add_widget(self.listView)
         self.searchBar=MDTextField()
+        self.theme_cls.primary_palette="Orange"
         #self.testbtn=MDRectangleFlatButton(text="Test",pos_hint={"center_x":0.3,"center_y":0.5})#on_release=self.test )
+        self.CurricScroll=ScrollView(pos_hint= {"center_y":0.3}, size_hint_y=0.4)
+        self.CurriclsView=MDList()
+
         #Rida
+        self.favbar = MDTextField(hint_text = "Favorites", text="Favorites", mode="rectangle", pos_hint = {"center_x":0.5, "center_y":.8},size_hint_x = 0.5)
+        # self.screen.fav.add_widget(self.favbar)
+        self.favscroll = ScrollView(pos_hint={"center_y": 0.3}, size_hint_y=0.4)
+        self.favlist = MDList()
+
+        #self.screen.fav.add_widget(self.favscroll)
 
 
         return self.screen
@@ -138,6 +148,11 @@ class MyApp(MDApp):
         self.screen.search.add_widget(self.scrollSearch)
         self.screen.search.add_widget(self.statLabel)
         self.HasBeenSearched=True
+
+    def addlist(self, obj):
+        self.favlist=OneLineListItem(self.favbar.text)
+        self.favlist.add_widget(self)
+
     def tab_switchView(self):
         self.screen.ids.panel.current=("Favorites")
         self.Blayout=MDBoxLayout()
@@ -145,8 +160,13 @@ class MyApp(MDApp):
         self.screen.ids.panel.current=("save")
     def tab_switchTrack(self):
         self.screen.ids.panel.current=("track")
+        self.BeginningLabel=MDLabel(text="Search a major in search tab to obtain result output",font_style="H5", halign="center",text_color= (0, 0, 1, 1))
+        if not self.HasBeenSearched:
+            self.screen.curriculum.add_widget(self.BeginningLabel)
+    
+
     def tab_switchRecur(self):
-        self.screen.ids.panel.current=("save")
+        self.screen.ids.panel.current=("search")
     def changeScreen(self):
         self.screen.ids.panel.switch_tab("search")
     def ready(self):
