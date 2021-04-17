@@ -31,7 +31,8 @@ Screen:
                 id: searchBtn
                 text: "Search"
                 pos_hint:{"center_x":0.7,"center_y":0.7}
-                
+                on_release: 
+                    app.search()
 
                 
         MDBottomNavigationItem:
