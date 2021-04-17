@@ -116,6 +116,7 @@ class MyApp(MDApp):
     def build(self):
 
         self.screen = Builder.load_string(screenHelp)
+        self.searchBar=MDTextField()
 
         return self.screen
     def erase(self):
@@ -128,7 +129,7 @@ class MyApp(MDApp):
     def tab_switchTrack(self):
         self.screen.ids.panel.current=("track")
     def tab_switchRecur(self):
-        self.screen.ids.panel.current=("recur")
+        self.screen.ids.panel.current=("save")
     def changeScreen(self):
         self.screen.ids.panel.switch_tab("Recurring Payments")
     def ready(self):
