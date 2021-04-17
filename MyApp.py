@@ -136,7 +136,8 @@ class MyApp(MDApp):
         # self.screen.fav.add_widget(self.favbar)
         self.favscroll = ScrollView(pos_hint={"center_y": 0.3}, size_hint_y=0.4)
         self.favlist = MDList()
-
+        print("why am i here")
+        print("fyeahhfybfra")
         #self.screen.fav.add_widget(self.favscroll)
 
 
