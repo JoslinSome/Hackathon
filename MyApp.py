@@ -145,6 +145,7 @@ class MyApp(MDApp):
         self.screen.search.add_widget(self.scrollSearch)
         self.screen.search.add_widget(self.statLabel)
         self.HasBeenSearched=True
+
     def addlist(self, obj):
         self.favlist=OneLineListItem(self.favbar.text)
         self.favlist.add_widget(self)
@@ -156,8 +157,11 @@ class MyApp(MDApp):
         self.screen.ids.panel.current=("save")
     def tab_switchTrack(self):
         self.screen.ids.panel.current=("track")
+
+
+
     def tab_switchRecur(self):
-        self.screen.ids.panel.current=("save")
+        self.screen.ids.panel.current=("search")
     def changeScreen(self):
         self.screen.ids.panel.switch_tab("search")
     def ready(self):
