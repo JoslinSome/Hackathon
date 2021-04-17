@@ -37,7 +37,7 @@ from kivymd.uix.expansionpanel import MDExpansionPanel, MDExpansionPanelOneLine,
 from kivy.app import App
 
 SizeList=[]
-
+print("dsfdsfsdsdfds")
 
 #Config.set('graphics','resizable',0)
 Window.size=(400,600)
