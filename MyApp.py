@@ -146,9 +146,8 @@ class MyApp(MDApp):
         self.screen.search.add_widget(self.statLabel)
         self.HasBeenSearched=True
     def addlist(self, obj):
-        self.listView.a
-
-
+        self.favlist=OneLineListItem(self.favbar.text)
+        self.favlist.add_widget(self)
 
     def tab_switchView(self):
         self.screen.ids.panel.current=("Favorites")
