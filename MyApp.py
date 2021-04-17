@@ -130,15 +130,7 @@ class MyApp(MDApp):
         self.scrollSearch.add_widget(self.listView)
         self.searchBar=MDTextField()
         #self.testbtn=MDRectangleFlatButton(text="Test",pos_hint={"center_x":0.3,"center_y":0.5})#on_release=self.test )
-
         #Rida
-        self.favbar = MDTextField(hint_text = "Favorites", text="Favorites", mode="rectangle", pos_hint = {"center_x":0.5, "center_y":.8},size_hint_x = 0.5)
-        # self.screen.fav.add_widget(self.favbar)
-        self.favscroll = ScrollView(pos_hint={"center_y": 0.3}, size_hint_y=0.4)
-        self.favlist = MDList()
-        print("why am i here")
-        print("fyeahhfybfra")
-        #self.screen.fav.add_widget(self.favscroll)
 
 
         return self.screen
@@ -146,10 +138,6 @@ class MyApp(MDApp):
         self.screen.search.add_widget(self.scrollSearch)
         self.screen.search.add_widget(self.statLabel)
         self.HasBeenSearched=True
-    def addlist(self, obj):
-        self.favlist=OneLineListItem(self.favbar.text)
-        self.favlist.add_widget(self)
-
     def tab_switchView(self):
         self.screen.ids.panel.current=("Favorites")
         self.Blayout=MDBoxLayout()

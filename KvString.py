@@ -11,7 +11,6 @@ Screen:
 
     search:search
     fav:fav
-    favbar:favbar
     MDBottomNavigation:
         id: panel
         panel_color: 1, 1, 1, 1
@@ -58,17 +57,10 @@ Screen:
             on_tab_release: app.tab_switchView()
             icon: 'star'
             
-            MDTextField:
-                id: favbar
-                mode: "rectangle"
-                pos_hint:{"center_x":0.5,"center_y":0.8}
-                size_hint_x:0.5
-                hint_text: "Favorites"
-               
             MDRectangleFlatButton:
                 id: FavAdd
-                text: "Add"
-                pos_hint:{"center_x":0.7,"center_y":0.7}
+                text: "Add to Favorites"
+                pos_hint:{"center_x":0.5,"center_y":0.5}
                 on_release: 
                     app.addlist()
             
