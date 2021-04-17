@@ -37,7 +37,7 @@ Screen:
                 
         MDBottomNavigationItem:
             name: 'track'
-            text: 'Track'
+            text: 'Curriculum'
             on_tab_release: app.tab_switchTrack()
             id:track
             icon: 'book-open-page-variant'

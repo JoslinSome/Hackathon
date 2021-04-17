@@ -118,6 +118,7 @@ class MyApp(MDApp):
         self.screen = Builder.load_string(screenHelp)
         self.scrollSearch=ScrollView(pos_hint= {"center_y":0.3}, size_hint_y=0.4)
         self.listView=MDList()
+        self.HasBeenSearched=False
         self.list1=OneLineListItem(text="hello")
         self.list2=OneLineListItem(text="hello")
         self.list3=OneLineListItem(text="hello")
@@ -134,6 +135,8 @@ class MyApp(MDApp):
     def search(self):
         self.screen.add_widget(self.scrollSearch)
         self.screen.add_widget(self.statLabel)
+        self.HasBeenSearched=True
+
     def erase(self):
         pass
     def tab_switchView(self):
@@ -146,7 +149,7 @@ class MyApp(MDApp):
     def tab_switchRecur(self):
         self.screen.ids.panel.current=("save")
     def changeScreen(self):
-        self.screen.ids.panel.switch_tab("Recurring Payments")
+        self.screen.ids.panel.switch_tab("search")
     def ready(self):
         pass
 
