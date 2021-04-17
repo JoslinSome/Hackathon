@@ -35,7 +35,9 @@ from kivymd.uix.textfield import MDTextField, MDTextFieldRect
 from kivy.uix.screenmanager import Screen, ScreenManager, FadeTransition, NoTransition, FallOutTransition
 from kivymd.uix.expansionpanel import MDExpansionPanel, MDExpansionPanelOneLine, MDExpansionPanelThreeLine
 from kivy.app import App
+print("dsc")
 SizeList=[]
+
 #Config.set('graphics','resizable',0)
 Window.size=(400,600)
 
@@ -130,6 +132,12 @@ class MyApp(MDApp):
         #self.testbtn=MDRectangleFlatButton(text="Test",pos_hint={"center_x":0.3,"center_y":0.5})#on_release=self.test )
 
         #Rida
+        self.favbar = MDTextField(hint_text = "Favorites", text="Favorites", mode="rectangle", pos_hint = {"center_x":0.5, "center_y":.8},size_hint_x = 0.5)
+        # self.screen.fav.add_widget(self.favbar)
+        self.favscroll = ScrollView(pos_hint={"center_y": 0.3}, size_hint_y=0.4)
+        self.favlist = MDList()
+
+        #self.screen.fav.add_widget(self.favscroll)
 
 
         return self.screen
@@ -137,8 +145,9 @@ class MyApp(MDApp):
         self.screen.search.add_widget(self.scrollSearch)
         self.screen.search.add_widget(self.statLabel)
         self.HasBeenSearched=True
-
-
+    def addlist(self, obj):
+        self.favlist=OneLineListItem(self.favbar.text)
+        self.favlist.add_widget(self)
 
     def tab_switchView(self):
         self.screen.ids.panel.current=("Favorites")
@@ -148,7 +157,7 @@ class MyApp(MDApp):
     def tab_switchTrack(self):
         self.screen.ids.panel.current=("track")
     def tab_switchRecur(self):
-        self.screen.ids.panel.current=("search")
+        self.screen.ids.panel.current=("save")
     def changeScreen(self):
         self.screen.ids.panel.switch_tab("search")
     def ready(self):
