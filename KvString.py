@@ -9,7 +9,7 @@ screenHelp = """
 Screen:
 
 
-    
+    search:search
     MDBottomNavigation:
         id: panel
         panel_color: 1, 1, 1, 1
@@ -37,7 +37,7 @@ Screen:
                 
         MDBottomNavigationItem:
             name: 'track'
-            text: 'Track'
+            text: 'Curriculum'
             on_tab_release: app.tab_switchTrack()
             id:track
             icon: 'book-open-page-variant'
@@ -50,11 +50,11 @@ Screen:
             icon: 'trophy'
            
         MDBottomNavigationItem:
-            id:overview
-            name: 'overview'
-            text: 'Overview'
+            id:fav
+            name: 'Favorites'
+            text: 'Favorites'
             on_tab_release: app.tab_switchView()
-            icon: 'view-grid-outline'
+            icon: 'star'
             
     BoxLayout:
         orientation: "vertical"

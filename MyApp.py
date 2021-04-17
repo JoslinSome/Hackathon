@@ -35,10 +35,7 @@ from kivymd.uix.textfield import MDTextField, MDTextFieldRect
 from kivy.uix.screenmanager import Screen, ScreenManager, FadeTransition, NoTransition, FallOutTransition
 from kivymd.uix.expansionpanel import MDExpansionPanel, MDExpansionPanelOneLine, MDExpansionPanelThreeLine
 from kivy.app import App
-print("yessirski")
 SizeList=[]
-print("dsfdsfsdsdfds")
-
 #Config.set('graphics','resizable',0)
 Window.size=(400,600)
 
@@ -118,6 +115,7 @@ class MyApp(MDApp):
         self.screen = Builder.load_string(screenHelp)
         self.scrollSearch=ScrollView(pos_hint= {"center_y":0.3}, size_hint_y=0.4)
         self.listView=MDList()
+        self.HasBeenSearched=False
         self.list1=OneLineListItem(text="hello")
         self.list2=OneLineListItem(text="hello")
         self.list3=OneLineListItem(text="hello")
@@ -129,24 +127,30 @@ class MyApp(MDApp):
         self.listView.add_widget(self.list4)
         self.scrollSearch.add_widget(self.listView)
         self.searchBar=MDTextField()
+        #self.testbtn=MDRectangleFlatButton(text="Test",pos_hint={"center_x":0.3,"center_y":0.5})#on_release=self.test )
+
+        #Rida
+
 
         return self.screen
     def search(self):
-        self.screen.add_widget(self.scrollSearch)
-        self.screen.add_widget(self.statLabel)
-    def erase(self):
-        pass
+        self.screen.search.add_widget(self.scrollSearch)
+        self.screen.search.add_widget(self.statLabel)
+        self.HasBeenSearched=True
+
+
+
     def tab_switchView(self):
-        self.screen.ids.panel.current=("overview")
+        self.screen.ids.panel.current=("Favorites")
         self.Blayout=MDBoxLayout()
     def tab_switchSave(self):
         self.screen.ids.panel.current=("save")
     def tab_switchTrack(self):
         self.screen.ids.panel.current=("track")
     def tab_switchRecur(self):
-        self.screen.ids.panel.current=("save")
+        self.screen.ids.panel.current=("search")
     def changeScreen(self):
-        self.screen.ids.panel.switch_tab("Recurring Payments")
+        self.screen.ids.panel.switch_tab("search")
     def ready(self):
         pass
 
