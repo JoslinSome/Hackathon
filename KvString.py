@@ -14,23 +14,30 @@ Screen:
         id: panel
         panel_color: 1, 1, 1, 1
         MDBottomNavigationItem:
-            name: 'recur'
-            id: recur
+            name: 'search'
+            id: search
             on_tab_release: app.tab_switchRecur()
-            text: 'Recurring'
-            icon: 'calendar-month'
+            text: 'search'
+            icon: 'magnify'
             
-            MDFloatingActionButton:
-                id: recurBtn
-                icon: "plus"
-                pos_hint: {"center_x":0.12,"center_y":0.1}
-                md_bg_color: app.theme_cls.primary_color
-                elevation_normal: 10
-                user_font_size: "20sp"
-                on_release: app.addRecurringItem()
+            MDTextField:
+                id: searchbar
+                mode: "rectangle"
+                pos_hint:{"center_x":0.5,"center_y":0.8}
+                size_hint_x:0.5
+                hint_text: "Search a major"
+                
+            MDRectangleFlatButton:
+                id: searchBtn
+                text: "Search"
+                pos_hint:{"center_x":0.7,"center_y":0.7}
+                on_release: 
+                    app.search()
+
+                
         MDBottomNavigationItem:
             name: 'track'
-            text: 'Track'
+            text: 'Curriculum'
             on_tab_release: app.tab_switchTrack()
             id:track
             icon: 'book-open-page-variant'

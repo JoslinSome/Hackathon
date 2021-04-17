@@ -37,7 +37,7 @@ from kivymd.uix.expansionpanel import MDExpansionPanel, MDExpansionPanelOneLine,
 from kivy.app import App
 print("yessirski")
 SizeList=[]
-
+print("dsfdsfsdsdfds")
 
 #Config.set('graphics','resizable',0)
 Window.size=(400,600)
@@ -116,8 +116,27 @@ class MyApp(MDApp):
     def build(self):
 
         self.screen = Builder.load_string(screenHelp)
+        self.scrollSearch=ScrollView(pos_hint= {"center_y":0.3}, size_hint_y=0.4)
+        self.listView=MDList()
+        self.HasBeenSearched=False
+        self.list1=OneLineListItem(text="hello")
+        self.list2=OneLineListItem(text="hello")
+        self.list3=OneLineListItem(text="hello")
+        self.list4=OneLineListItem(text="hello")
+        self.statLabel=MDLabel(text="General statistics", font_style="H5",pos_hint= {"center_x":0.6, "center_y": 0.6})
+        self.listView.add_widget(self.list1)
+        self.listView.add_widget(self.list2)
+        self.listView.add_widget(self.list3)
+        self.listView.add_widget(self.list4)
+        self.scrollSearch.add_widget(self.listView)
+        self.searchBar=MDTextField()
 
         return self.screen
+    def search(self):
+        self.screen.add_widget(self.scrollSearch)
+        self.screen.add_widget(self.statLabel)
+        self.HasBeenSearched=True
+
     def erase(self):
         pass
     def tab_switchView(self):
@@ -128,9 +147,9 @@ class MyApp(MDApp):
     def tab_switchTrack(self):
         self.screen.ids.panel.current=("track")
     def tab_switchRecur(self):
-        self.screen.ids.panel.current=("recur")
+        self.screen.ids.panel.current=("save")
     def changeScreen(self):
-        self.screen.ids.panel.switch_tab("Recurring Payments")
+        self.screen.ids.panel.switch_tab("search")
     def ready(self):
         pass
 
