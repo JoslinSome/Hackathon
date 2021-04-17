@@ -35,10 +35,7 @@ from kivymd.uix.textfield import MDTextField, MDTextFieldRect
 from kivy.uix.screenmanager import Screen, ScreenManager, FadeTransition, NoTransition, FallOutTransition
 from kivymd.uix.expansionpanel import MDExpansionPanel, MDExpansionPanelOneLine, MDExpansionPanelThreeLine
 from kivy.app import App
-print("yessirski")
 SizeList=[]
-print("dsfdsfsdsdfds")
-
 #Config.set('graphics','resizable',0)
 Window.size=(400,600)
 
@@ -151,7 +148,7 @@ class MyApp(MDApp):
     def tab_switchTrack(self):
         self.screen.ids.panel.current=("track")
     def tab_switchRecur(self):
-        self.screen.ids.panel.current=("save")
+        self.screen.ids.panel.current=("search")
     def changeScreen(self):
         self.screen.ids.panel.switch_tab("search")
     def ready(self):
