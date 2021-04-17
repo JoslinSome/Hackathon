@@ -130,17 +130,21 @@ class MyApp(MDApp):
         self.listView.add_widget(self.list4)
         self.scrollSearch.add_widget(self.listView)
         self.searchBar=MDTextField()
+        #self.testbtn=MDRectangleFlatButton(text="Test",pos_hint={"center_x":0.3,"center_y":0.5})#on_release=self.test )
+
+        #Rida
+
 
         return self.screen
     def search(self):
-        self.screen.add_widget(self.scrollSearch)
-        self.screen.add_widget(self.statLabel)
+        self.screen.search.add_widget(self.scrollSearch)
+        self.screen.search.add_widget(self.statLabel)
         self.HasBeenSearched=True
 
-    def erase(self):
-        pass
+
+
     def tab_switchView(self):
-        self.screen.ids.panel.current=("overview")
+        self.screen.ids.panel.current=("Favorites")
         self.Blayout=MDBoxLayout()
     def tab_switchSave(self):
         self.screen.ids.panel.current=("save")
