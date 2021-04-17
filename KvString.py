@@ -12,6 +12,7 @@ Screen:
     search:search
     fav:fav
     favbar:favbar
+    curriculum:curriculum
     MDBottomNavigation:
         id: panel
         panel_color: 1, 1, 1, 1
@@ -41,7 +42,7 @@ Screen:
             name: 'track'
             text: 'Curriculum'
             on_tab_release: app.tab_switchTrack()
-            id:track
+            id:curriculum
             icon: 'book-open-page-variant'
             
 
