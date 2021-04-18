@@ -138,16 +138,17 @@ class MyApp(MDApp):
         self.theme_cls.primary_palette = "Orange"
         self.trackTrashList=[]
         self.favLists=[]
-        self.start_program = webScrape()
         #self.testbtn=MDRectangleFlatButton(text="Test",pos_hint={"center_x":0.3,"center_y":0.5})#on_release=self.test )
-        self.CurricScroll=ScrollView(pos_hint= {"center_y":0.5}, size_hint_y=0.6)
+        self.CurricScroll=ScrollView(pos_hint= {"center_y":0.4}, size_hint_y=0.6)
         self.CurriclsView=MDList()
         self.screen.curriculum.add_widget(self.CurricScroll)
         self.screen.search.add_widget(self.textField)
-        self.tempLabel=MDLabel(text="Searching please wait",pos_hint= {"center_y":0.5})
+        self.tempLabel=MDLabel(text="Searching please wait",pos_hint={"center_x":0.5,"center_y":0.8},font_style="H5")
+        self.tempLabel1=MDLabel(text="General Curriculum:",pos_hint= {"center_x":0.5,"center_y":0.8},font_style="H5")
+        self.CoursesList=[]
         #Rida
         # self.screen.fav.add_widget(self.favbar)
-        self.favscroll = ScrollView(pos_hint= {"center_y":0.3}, size_hint_y=0.7)
+        self.favscroll = ScrollView(pos_hint= {"center_y":0.2}, size_hint_y=0.7)
         self.favlistview = MDList()
         self.favscroll.add_widget(self.favlistview)
         self.emptyfav = MDLabel(text = "Enter a major into the search bar", font_style = "Button",pos_hint= {"center_x":0.66, "center_y": 0.7})
@@ -156,10 +157,15 @@ class MyApp(MDApp):
 
         return self.screen
     def search(self):
-         # if self.HasBeenSearched:
-         #     start_program.reqs_list = []
+         if self.HasBeenSearched:
+
+            for course in self.CoursesList:
+                self.CurriclsView.remove_widget(course)
+            self.CoursesList=[]
+
          self.screen.search.add_widget(self.tempLabel)
          user_input1 = self.textField.searchbar.text
+         self.start_program = webScrape()
          program_runs = self.start_program.search_major(user_input1)
          if not program_runs:
              print("Could not find major, please re-enter")
@@ -168,13 +174,17 @@ class MyApp(MDApp):
 
          print(self.start_program.reqs_list)
          if not self.HasBeenSearched:
+            self.screen.curriculum.add_widget(self.tempLabel1)
             self.CurricScroll.add_widget(self.CurriclsView)
             self.textField.searchbar.text
             self.screen.curriculum.remove_widget(self.BeginningLabel)
          self.HasBeenSearched=True
+
          for course in self.start_program.reqs_list:
+             print(course)
              self.tempLs=OneLineListItem(text=course)
              self.CurriclsView.add_widget(self.tempLs)
+             self.CoursesList.append(self.tempLs)
 
     def addlist(self):
         if self.textField.searchbar.text == "":

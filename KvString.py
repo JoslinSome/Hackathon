@@ -38,13 +38,7 @@ Screen:
             on_tab_release: app.tab_switchTrack()
             id:curriculum
             icon: 'book-open-page-variant'
-            
 
-        MDBottomNavigationItem:
-            id:save
-            name: 'save'
-            text: 'Save'
-            icon: 'trophy'
            
         MDBottomNavigationItem:
             id:fav
@@ -66,11 +60,9 @@ Screen:
     BoxLayout:
         orientation: "vertical"
         MDToolbar:
-            title: "Major Prep"
+            title: "                      Major Prep"
 
             id: toolbar
-            left_action_items: [["menu",lambda x: nav_drawer.toggle_nav_drawer()]]
-            right_action_items: [["help-circle-outline",lambda x: app.helpReccuring()]]
             size_hint_y: None
             elevation: 10
 
