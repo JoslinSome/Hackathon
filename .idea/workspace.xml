@@ -20,8 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3a4f7e78-2f93-4c28-a2df-89a141f16d31" name="Default Changelist" comment="clicking on Lists changes search text">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyApp.py" beforeDir="false" afterPath="$PROJECT_DIR$/MyApp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -274,6 +273,7 @@
     <MESSAGE value="clicking on Lists changes search text" />
     <option name="LAST_COMMIT_MESSAGE" value="clicking on Lists changes search text" />
   </component>
+
   <component name="WindowStateProjectService">
     <state width="1419" height="293" key="GridCell.Tab.0.bottom" timestamp="1618762778510">
       <screen x="0" y="0" width="1440" height="900" />
