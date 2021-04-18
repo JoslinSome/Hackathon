@@ -168,11 +168,10 @@ class MyApp(MDApp):
          self.start_program = webScrape()
          program_runs = self.start_program.search_major(user_input1)
          if not program_runs:
-             print("Could not find major, please re-enter")
+             print("Major not found")
          webScrape.search_major(webScrape, self.textField.searchbar.text)
          self.screen.search.remove_widget(self.tempLabel)
 
-         print(self.start_program.reqs_list)
          if not self.HasBeenSearched:
             self.screen.curriculum.add_widget(self.tempLabel1)
             self.CurricScroll.add_widget(self.CurriclsView)
@@ -181,7 +180,6 @@ class MyApp(MDApp):
          self.HasBeenSearched=True
 
          for course in self.start_program.reqs_list:
-             print(course)
              self.tempLs=OneLineListItem(text=course)
              self.CurriclsView.add_widget(self.tempLs)
              self.CoursesList.append(self.tempLs)
@@ -202,7 +200,6 @@ class MyApp(MDApp):
                 self.addedlist.append(self.textField.searchbar.text)
                 self.screen.fav.remove_widget(self.emptyfav)
     def searchFav(self,touch,obj):
-        print(touch.text)
         for i in range(len(self.favlistList)):
 
             if self.favlistList[i].text==touch.text and not self.HasBeenClicked:

@@ -33,13 +33,13 @@ class webScrape:
             new_program += letter + word[1:] + " "
         new_program = new_program.strip(" ")
         try:
-            buttons = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(
+            buttons = WebDriverWait(self.driver, 1).until(EC.element_to_be_clickable(
                 (By.XPATH, "//*[contains(text(), '{},')]".format(new_program)))).click()
             no_errors = True
         except:
             return False
         if no_errors:
-            WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(
+            WebDriverWait(self.driver, 1).until(EC.element_to_be_clickable(
                 (By.XPATH, '//a[text()="Requirements"]'))).click()
             requirements_button = self.driver.find_element_by_id("requirementstexttab")
             requirements_button.click()
