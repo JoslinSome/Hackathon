@@ -177,6 +177,7 @@ class MyApp(MDApp):
                 self.favlistview.remove_widget(self.favlistList[i])
                 del self.trackTrashList[i]
                 del self.favlistList[i]
+                del self.addedlist[i]
     def tab_switchView(self):
         self.screen.ids.panel.current=("Favorites")
         self.Blayout=MDBoxLayout()
