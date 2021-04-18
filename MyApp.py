@@ -3,6 +3,7 @@ from KvString import *
 from kivy.graphics.context_instructions import Color
 from kivy.graphics.vertex_instructions import Rectangle
 from kivymd.app import MDApp
+#from webScraperFile import webScrape
 from kivy.lang.builder import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.properties import ObjectProperty
@@ -37,6 +38,19 @@ from kivymd.uix.textfield import MDTextField, MDTextFieldRect
 from kivy.uix.screenmanager import Screen, ScreenManager, FadeTransition, NoTransition, FallOutTransition
 from kivymd.uix.expansionpanel import MDExpansionPanel, MDExpansionPanelOneLine, MDExpansionPanelThreeLine
 from kivy.app import App
+import os
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+import time
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+import logging
+
+from webScraperFile import webScrape
+
 SizeList=[]
 Clock.max_iteration = 10
 #Config.set('graphics','resizable',0)
@@ -108,70 +122,116 @@ sm.add_widget(ProfileScreen(name='profile'))
 sm.add_widget(UploadScreen(name='upload'))
 sm.add_widget(Bar(name="Bar"))
 
-
 class MyApp(MDApp):
 
 
     def build(self):
 
         self.screen = Builder.load_string(screenHelp)
-        self.scrollSearch=ScrollView(pos_hint= {"center_y":0.3}, size_hint_y=0.4)
         self.textField= Builder.load_string(dialogBox1)
-        self.listView=MDList()
-        self.screen.ids.panel.current=("Favorites")
+       # self.screen.ids.panel.current=("Favorites")
         self.HasBeenSearched=False
-        self.list1=OneLineListItem(text="hello")
-        self.list2=OneLineListItem(text="hello")
-        self.list3=OneLineListItem(text="hello")
-        self.list4=OneLineListItem(text="hello")
-        self.statLabel=MDLabel(text="General statistics", font_style="H5",pos_hint= {"center_x":0.6, "center_y": 0.6})
-        self.listView.add_widget(self.list1)
-        self.listView.add_widget(self.list2)
-        self.listView.add_widget(self.list3)
-        self.listView.add_widget(self.list4)
+        self.BeginningLabel=MDLabel(text="Search a major in search tab to obtain result output",font_style="H5", halign="center",text_color= (0, 0, 1, 1))
         self.addedlist = []
-        self.scrollSearch.add_widget(self.listView)
+        self.favlistList=[]
         self.searchBar=MDTextField()
         self.theme_cls.primary_palette = "Orange"
+        self.trackTrashList=[]
+        self.favLists=[]
         #self.testbtn=MDRectangleFlatButton(text="Test",pos_hint={"center_x":0.3,"center_y":0.5})#on_release=self.test )
-        self.CurricScroll=ScrollView(pos_hint= {"center_y":0.3}, size_hint_y=0.4)
+        self.CurricScroll=ScrollView(pos_hint= {"center_y":0.4}, size_hint_y=0.6)
         self.CurriclsView=MDList()
+        self.screen.curriculum.add_widget(self.CurricScroll)
         self.screen.search.add_widget(self.textField)
+        self.tempLabel=MDLabel(text="Searching please wait",pos_hint={"center_x":0.5,"center_y":0.8},font_style="H5")
+        self.tempLabel1=MDLabel(text="General Curriculum:",pos_hint= {"center_x":0.5,"center_y":0.8},font_style="H5")
+        self.CoursesList=[]
         #Rida
         # self.screen.fav.add_widget(self.favbar)
-        self.favscroll = ScrollView(pos_hint= {"center_y":0.3}, size_hint_y=0.7)
+        self.favscroll = ScrollView(pos_hint= {"center_y":0.2}, size_hint_y=0.7)
         self.favlistview = MDList()
         self.favscroll.add_widget(self.favlistview)
-
+        self.emptyfav = MDLabel(text = "Enter a major into the search bar", font_style = "Button",pos_hint= {"center_x":0.66, "center_y": 0.7})
         self.screen.fav.add_widget(self.favscroll)
+        self.HasBeenClicked=False
 
         return self.screen
     def search(self):
-        if not self.HasBeenSearched:
-            self.screen.search.add_widget(self.scrollSearch)
-            self.screen.search.add_widget(self.statLabel)
+         if self.HasBeenSearched:
+
+            for course in self.CoursesList:
+                self.CurriclsView.remove_widget(course)
+            self.CoursesList=[]
+
+         self.screen.search.add_widget(self.tempLabel)
+         user_input1 = self.textField.searchbar.text
+         self.start_program = webScrape()
+         program_runs = self.start_program.search_major(user_input1)
+         if not program_runs:
+             print("Major not found")
+         webScrape.search_major(webScrape, self.textField.searchbar.text)
+         self.screen.search.remove_widget(self.tempLabel)
+
+         if not self.HasBeenSearched:
+            self.screen.curriculum.add_widget(self.tempLabel1)
+            self.CurricScroll.add_widget(self.CurriclsView)
             self.textField.searchbar.text
-        self.HasBeenSearched=True
+            self.screen.curriculum.remove_widget(self.BeginningLabel)
+         self.HasBeenSearched=True
+
+         for course in self.start_program.reqs_list:
+             self.tempLs=OneLineListItem(text=course)
+             self.CurriclsView.add_widget(self.tempLs)
+             self.CoursesList.append(self.tempLs)
 
     def addlist(self):
-        if self.textField.searchbar.text not in self.addedlist:
-            self.favlist = OneLineListItem(text = self.textField.searchbar.text)
-            self.favlistview.add_widget(self.favlist)
-            self.addedlist.append(self.textField.searchbar.text)
+        if self.textField.searchbar.text == "":
+            self.screen.fav.add_widget(self.emptyfav)
+        else:
+            if self.textField.searchbar.text not in self.addedlist:
+                icon2 = IconLeftWidget(icon="heart-outline")
+                icon = IconRightWidget(icon="trash-can-outline",on_release=self.Delete)
+                self.favlist = TwoLineAvatarIconListItem(text = self.textField.searchbar.text,on_touch_up=self.searchFav)
+                self.favlistList.append(self.favlist)
+                self.trackTrashList.append(icon)
+                self.favlist.add_widget(icon2)
+                self.favlist.add_widget(icon)
+                self.favlistview.add_widget(self.favlist)
+                self.addedlist.append(self.textField.searchbar.text)
+                self.screen.fav.remove_widget(self.emptyfav)
+    def searchFav(self,touch,obj):
+        for i in range(len(self.favlistList)):
 
+            if self.favlistList[i].text==touch.text and not self.HasBeenClicked:
+                #print(touch.text, " ", self.favlistList[i].text, " ", i)
+                self.HasBeenClicked=True
+                self.textField.searchbar.text=touch.text
+                self.search()
+                break
+    def Delete(self, touch):
+        for i in range(len(self.trackTrashList)):
+            if self.trackTrashList[i]==touch:
+                self.favlistview.remove_widget(self.favlistList[i])
+                del self.trackTrashList[i]
+                del self.favlistList[i]
+                del self.addedlist[i]
+                break
     def tab_switchView(self):
         self.screen.ids.panel.current=("Favorites")
         self.Blayout=MDBoxLayout()
     def tab_switchSave(self):
         self.screen.ids.panel.current=("save")
+        self.HasBeenClicked=False
     def tab_switchTrack(self):
         self.screen.ids.panel.current=("track")
-        self.BeginningLabel=MDLabel(text="Search a major in search tab to obtain result output",font_style="H5", halign="center",text_color= (0, 0, 1, 1))
+        self.HasBeenClicked=False
         if not self.HasBeenSearched:
             self.screen.curriculum.add_widget(self.BeginningLabel)
 
     def tab_switchRecur(self):
         self.screen.ids.panel.current=("search")
+        self.HasBeenClicked=False
+
     def changeScreen(self):
         self.screen.ids.panel.switch_tab("search")
     def ready(self):
@@ -179,3 +239,5 @@ class MyApp(MDApp):
 
 
 MyApp().run()
+
+

@@ -27,7 +27,7 @@ Screen:
             MDRectangleFlatButton:
                 id: searchBtn
                 text: "Search"
-                pos_hint:{"center_x":0.7,"center_y":0.8}
+                pos_hint:{"center_x":0.5,"center_y":0.45}
                 on_release: 
                     app.search()
 
@@ -38,13 +38,7 @@ Screen:
             on_tab_release: app.tab_switchTrack()
             id:curriculum
             icon: 'book-open-page-variant'
-            
 
-        MDBottomNavigationItem:
-            id:save
-            name: 'save'
-            text: 'Save'
-            icon: 'trophy'
            
         MDBottomNavigationItem:
             id:fav
@@ -66,11 +60,9 @@ Screen:
     BoxLayout:
         orientation: "vertical"
         MDToolbar:
-            title: "Demo App"
+            title: "                      Major Prep"
 
             id: toolbar
-            left_action_items: [["menu",lambda x: nav_drawer.toggle_nav_drawer()]]
-            right_action_items: [["help-circle-outline",lambda x: app.helpReccuring()]]
             size_hint_y: None
             elevation: 10
 
@@ -166,7 +158,7 @@ MDLabel:
 dialogBox1 = """
 Content1:
     searchbar:searchbar
-    pos_hint:{"center_x":0.5,"center_y":1.35}
+    pos_hint:{"center_x":0.5,"center_y":1}
     size_hint_x:0.5
     MDTextField:
         id: searchbar
