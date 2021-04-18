@@ -57,10 +57,13 @@ Screen:
             on_tab_release: app.tab_switchView()
             icon: 'star'
             
-            MDRectangleFlatButton:
-                id: FavAdd
+            MDRoundFlatIconButton:
+                icon: "star"
                 text: "Add to Favorites"
-                pos_hint:{"center_x":0.5,"center_y":0.5}
+                text_color: 1, 1, 1, 1
+                md_bg_color: .27, .18, .08, .75
+                pos_hint:{"center_x":0.5,"center_y":0.8}
+                size_hint_x: .7
                 on_release: 
                     app.addlist()
             

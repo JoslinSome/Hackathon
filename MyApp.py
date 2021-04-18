@@ -129,18 +129,18 @@ class MyApp(MDApp):
         self.listView.add_widget(self.list4)
         self.scrollSearch.add_widget(self.listView)
         self.searchBar=MDTextField()
-        self.theme_cls.primary_palette="Orange"
+        self.theme_cls.primary_palette = "Orange"
         #self.testbtn=MDRectangleFlatButton(text="Test",pos_hint={"center_x":0.3,"center_y":0.5})#on_release=self.test )
         self.CurricScroll=ScrollView(pos_hint= {"center_y":0.3}, size_hint_y=0.4)
         self.CurriclsView=MDList()
 
         #Rida
-        self.favbar = MDTextField(hint_text = "Favorites", text="Favorites", mode="rectangle", pos_hint = {"center_x":0.5, "center_y":.8},size_hint_x = 0.5)
         # self.screen.fav.add_widget(self.favbar)
-        self.favscroll = ScrollView(pos_hint={"center_y": 0.3}, size_hint_y=0.4)
-        self.favlist = MDList()
+        self.favscroll = ScrollView(pos_hint= {"center_y":0.3}, size_hint_y=0.4)
+        self.favlistview = MDList()
+        self.favscroll.add_widget(self.favlistview)
 
-        #self.screen.fav.add_widget(self.favscroll)
+        self.screen.fav.add_widget(self.favscroll)
 
 
         return self.screen
@@ -149,9 +149,10 @@ class MyApp(MDApp):
         self.screen.search.add_widget(self.statLabel)
         self.HasBeenSearched=True
 
-    def addlist(self, obj):
-        self.favlist=OneLineListItem(self.favbar.text)
-        self.favlist.add_widget(self)
+    def addlist(self):
+
+        self.favlist = OneLineListItem(text = "item {i}",)
+        self.favlistview.add_widget(self.favlist)
 
     def tab_switchView(self):
         self.screen.ids.panel.current=("Favorites")
