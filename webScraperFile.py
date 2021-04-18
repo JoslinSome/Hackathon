@@ -12,7 +12,7 @@ import logging
 options = Options()
 options.add_argument('--headless')
 options.add_argument('--disable-gpu')
-PATH = os.getcwd() + "/chromedriver.exe"
+PATH = os.getcwd() + "/chromedriver"
 
 
 class webScrape:
@@ -59,8 +59,8 @@ class webScrape:
                         webScrape.reqs_list.append(course_info1)
                 except:
                     pass
-            return True
 
+'''
 start_program = webScrape()
 user_input1 = "CompuTer sciEnce"
 program_runs = start_program.search_major(user_input1)
@@ -68,3 +68,4 @@ if not program_runs:
     print("Could not find major, please re-enter")
 else:
     print(start_program.reqs_list)
+'''
