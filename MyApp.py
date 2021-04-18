@@ -6,7 +6,9 @@ from kivymd.app import MDApp
 from kivy.lang.builder import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.properties import ObjectProperty
+from kivy.properties import StringProperty
 from kivy.core.window import Window
+from kivymd.uix.card import MDCardSwipe
 from kivymd.uix.picker import MDDatePicker,MDThemePicker
 from kivymd.uix.boxlayout import MDBoxLayout
 from kivy.uix.widget import Widget
@@ -42,7 +44,6 @@ Window.size=(400,600)
 
 class MenuScreen(Screen):
     pass
-
 
 class ProfileScreen(Screen):
     pass
@@ -128,6 +129,7 @@ class MyApp(MDApp):
         self.listView.add_widget(self.list2)
         self.listView.add_widget(self.list3)
         self.listView.add_widget(self.list4)
+        self.addedlist = []
         self.scrollSearch.add_widget(self.listView)
         self.searchBar=MDTextField()
         self.theme_cls.primary_palette = "Orange"
@@ -137,25 +139,25 @@ class MyApp(MDApp):
         self.screen.search.add_widget(self.textField)
         #Rida
         # self.screen.fav.add_widget(self.favbar)
-        self.favscroll = ScrollView(pos_hint= {"center_y":0.3}, size_hint_y=0.4)
+        self.favscroll = ScrollView(pos_hint= {"center_y":0.3}, size_hint_y=0.7)
         self.favlistview = MDList()
         self.favscroll.add_widget(self.favlistview)
 
         self.screen.fav.add_widget(self.favscroll)
-
 
         return self.screen
     def search(self):
         if not self.HasBeenSearched:
             self.screen.search.add_widget(self.scrollSearch)
             self.screen.search.add_widget(self.statLabel)
-
+            self.textField.searchbar.text
         self.HasBeenSearched=True
 
     def addlist(self):
-
-        self.favlist = OneLineListItem(text = "item {i}",)
-        self.favlistview.add_widget(self.favlist)
+        if self.textField.searchbar.text not in self.addedlist:
+            self.favlist = OneLineListItem(text = self.textField.searchbar.text)
+            self.favlistview.add_widget(self.favlist)
+            self.addedlist.append(self.textField.searchbar.text)
 
     def tab_switchView(self):
         self.screen.ids.panel.current=("Favorites")
