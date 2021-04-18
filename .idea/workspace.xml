@@ -19,10 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a4f7e78-2f93-4c28-a2df-89a141f16d31" name="Default Changelist" comment="can get text">
+    <list default="true" id="3a4f7e78-2f93-4c28-a2df-89a141f16d31" name="Default Changelist" comment="clicking on list updates search">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-
       <change beforePath="$PROJECT_DIR$/MyApp.py" beforeDir="false" afterPath="$PROJECT_DIR$/MyApp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webScraperFile.py" beforeDir="false" afterPath="$PROJECT_DIR$/webScraperFile.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,9 +52,10 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.webScraperFile">
+  <component name="RunManager" selected="Python.MyApp">
     <configuration name="KvString" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Hackathon" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -173,15 +174,15 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.webScraperFile" />
         <item itemvalue="Python.MyApp" />
+        <item itemvalue="Python.webScraperFile" />
         <item itemvalue="Python.tesr" />
         <item itemvalue="Python.KvString" />
         <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="false" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -229,7 +230,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618731743510</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="clicking on list updates search">
+      <created>1618733218941</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1618733218941</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -256,7 +264,29 @@
     <MESSAGE value="test" />
     <MESSAGE value="test1" />
     <MESSAGE value="can get text" />
-    <option name="LAST_COMMIT_MESSAGE" value="can get text" />
+    <MESSAGE value="clicking on list updates search" />
+    <option name="LAST_COMMIT_MESSAGE" value="clicking on list updates search" />
   </component>
-
+  <component name="WindowStateProjectService">
+    <state width="1419" height="293" key="GridCell.Tab.0.bottom" timestamp="1618761186071">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1419" height="293" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1618761186071" />
+    <state width="1419" height="259" key="GridCell.Tab.0.bottom/0.23.1440.834@0.23.1440.834" timestamp="1618759791836" />
+    <state width="1419" height="293" key="GridCell.Tab.0.center" timestamp="1618761186065">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1419" height="293" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1618761186065" />
+    <state width="1419" height="259" key="GridCell.Tab.0.center/0.23.1440.834@0.23.1440.834" timestamp="1618759791835" />
+    <state width="1419" height="293" key="GridCell.Tab.0.left" timestamp="1618761186033">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1419" height="293" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1618761186033" />
+    <state width="1419" height="259" key="GridCell.Tab.0.left/0.23.1440.834@0.23.1440.834" timestamp="1618759791834" />
+    <state width="1419" height="293" key="GridCell.Tab.0.right" timestamp="1618761186067">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1419" height="293" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1618761186067" />
+    <state width="1419" height="259" key="GridCell.Tab.0.right/0.23.1440.834@0.23.1440.834" timestamp="1618759791835" />
+  </component>
 </project>

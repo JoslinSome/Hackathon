@@ -3,6 +3,7 @@ from KvString import *
 from kivy.graphics.context_instructions import Color
 from kivy.graphics.vertex_instructions import Rectangle
 from kivymd.app import MDApp
+#from webScraperFile import webScrape
 from kivy.lang.builder import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.properties import ObjectProperty
@@ -37,6 +38,19 @@ from kivymd.uix.textfield import MDTextField, MDTextFieldRect
 from kivy.uix.screenmanager import Screen, ScreenManager, FadeTransition, NoTransition, FallOutTransition
 from kivymd.uix.expansionpanel import MDExpansionPanel, MDExpansionPanelOneLine, MDExpansionPanelThreeLine
 from kivy.app import App
+import os
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+import time
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+import logging
+
+from webScraperFile import webScrape
+
 SizeList=[]
 Clock.max_iteration = 10
 #Config.set('graphics','resizable',0)
@@ -108,7 +122,6 @@ sm.add_widget(ProfileScreen(name='profile'))
 sm.add_widget(UploadScreen(name='upload'))
 sm.add_widget(Bar(name="Bar"))
 
-
 class MyApp(MDApp):
 
 
@@ -147,14 +160,21 @@ class MyApp(MDApp):
         self.favscroll.add_widget(self.favlistview)
         self.emptyfav = MDLabel(text = "Enter a major into the search bar", font_style = "Button",pos_hint= {"center_x":0.66, "center_y": 0.7})
         self.screen.fav.add_widget(self.favscroll)
+        self.HasBeenClicked=False
 
         return self.screen
     def search(self):
-        if not self.HasBeenSearched:
+         start_program = webScrape()
+         user_input1 = self.textField.searchbar.text
+         program_runs = start_program.search_major(user_input1)
+         if not program_runs:
+             print("Could not find major, please re-enter")
+         webScrape.search_major(webScrape, self.textField.searchbar.text)
+         if not self.HasBeenSearched:
             self.screen.search.add_widget(self.scrollSearch)
             self.screen.search.add_widget(self.statLabel)
             self.textField.searchbar.text
-        self.HasBeenSearched=True
+         self.HasBeenSearched=True
 
     def addlist(self):
         if self.textField.searchbar.text == "":
@@ -172,8 +192,12 @@ class MyApp(MDApp):
                 self.addedlist.append(self.textField.searchbar.text)
                 self.screen.fav.remove_widget(self.emptyfav)
     def searchFav(self,touch,obj):
+        print(touch.text)
         for i in range(len(self.favlistList)):
-            if self.favlistList[i]==touch:
+
+            if self.favlistList[i].text==touch.text and not self.HasBeenClicked:
+                #print(touch.text, " ", self.favlistList[i].text, " ", i)
+                self.HasBeenClicked=True
                 self.textField.searchbar.text=touch.text
                 self.search()
                 break
@@ -190,14 +214,18 @@ class MyApp(MDApp):
         self.Blayout=MDBoxLayout()
     def tab_switchSave(self):
         self.screen.ids.panel.current=("save")
+        self.HasBeenClicked=False
     def tab_switchTrack(self):
         self.screen.ids.panel.current=("track")
+        self.HasBeenClicked=False
         self.BeginningLabel=MDLabel(text="Search a major in search tab to obtain result output",font_style="H5", halign="center",text_color= (0, 0, 1, 1))
         if not self.HasBeenSearched:
             self.screen.curriculum.add_widget(self.BeginningLabel)
 
     def tab_switchRecur(self):
         self.screen.ids.panel.current=("search")
+        self.HasBeenClicked=False
+
     def changeScreen(self):
         self.screen.ids.panel.switch_tab("search")
     def ready(self):
@@ -205,3 +233,5 @@ class MyApp(MDApp):
 
 
 MyApp().run()
+
+
