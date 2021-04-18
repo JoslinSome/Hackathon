@@ -21,8 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3a4f7e78-2f93-4c28-a2df-89a141f16d31" name="Default Changelist" comment="can get text">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-
-      <change beforePath="$PROJECT_DIR$/MyApp.py" beforeDir="false" afterPath="$PROJECT_DIR$/MyApp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webScraperFile.py" beforeDir="false" afterPath="$PROJECT_DIR$/webScraperFile.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -263,8 +262,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/webScraperFile.py</url>
-          <line>29</line>
+          <line>35</line>
           <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/webScraperFile.py</url>
+          <line>28</line>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

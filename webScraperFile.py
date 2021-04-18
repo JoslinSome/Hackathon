@@ -26,9 +26,15 @@ class webScrape:
 
     def search_major(self, program):
         no_errors = False
+        new_program = ""
+        program = program.lower()
+        for word in program.split(" "):
+            letter = word[0].upper()
+            new_program += letter + word[1:] + " "
+        new_program = new_program.strip(" ")
         try:
             buttons = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(
-                (By.XPATH, "//*[contains(text(), '{},')]".format(program)))).click()
+                (By.XPATH, "//*[contains(text(), '{},')]".format(new_program)))).click()
             no_errors = True
         except:
             return False
@@ -55,12 +61,10 @@ class webScrape:
                     pass
             return True
 
-'''
 start_program = webScrape()
-user_input1 = "Accounting"
+user_input1 = "CompuTer sciEnce"
 program_runs = start_program.search_major(user_input1)
 if not program_runs:
     print("Could not find major, please re-enter")
 else:
     print(start_program.reqs_list)
-'''
