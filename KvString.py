@@ -66,7 +66,7 @@ Screen:
     BoxLayout:
         orientation: "vertical"
         MDToolbar:
-            title: "Demo App"
+            title: "Major Prep"
 
             id: toolbar
             left_action_items: [["menu",lambda x: nav_drawer.toggle_nav_drawer()]]
