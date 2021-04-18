@@ -19,8 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a4f7e78-2f93-4c28-a2df-89a141f16d31" name="Default Changelist" comment="clicking on Lists changes search text">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml
+    <list default="true" id="3a4f7e78-2f93-4c28-a2df-89a141f16d31" name="Default Changelist" comment="can get text">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,9 +39,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1r8PS99DCOtBWA62Pe8dGzYbPIq" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -50,7 +48,6 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunManager" selected="Python.MyApp">
@@ -142,38 +139,9 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="webScraperFile" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Hackathon" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/webScraperFile.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <list>
-      <item itemvalue="Python.KvString" />
-      <item itemvalue="Python.MyApp" />
-      <item itemvalue="Python.tesr" />
-      <item itemvalue="Python.test" />
-      <item itemvalue="Python.webScraperFile" />
-    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.MyApp" />
-        <item itemvalue="Python.webScraperFile" />
         <item itemvalue="Python.tesr" />
         <item itemvalue="Python.KvString" />
         <item itemvalue="Python.test" />
@@ -214,35 +182,7 @@
       <option name="project" value="LOCAL" />
       <updated>1618720105863</updated>
     </task>
-    <task id="LOCAL-00004" summary="can get text">
-      <created>1618731344273</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1618731344274</updated>
-    </task>
-    <task id="LOCAL-00005" summary="can get text">
-      <created>1618731743510</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1618731743510</updated>
-    </task>
-    <task id="LOCAL-00006" summary="clicking on list updates search">
-      <created>1618733218941</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1618733218941</updated>
-    </task>
-    <task id="LOCAL-00007" summary="clicking on Lists changes search text">
-      <created>1618761345535</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1618761345536</updated>
-    </task>
-    <option name="localTasksCounter" value="8" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -251,11 +191,6 @@
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
-        <entry key="1">
-          <value>
-            <State />
-          </value>
-        </entry>
         <entry key="MAIN">
           <value>
             <State />
@@ -269,31 +204,56 @@
     <MESSAGE value="test" />
     <MESSAGE value="test1" />
     <MESSAGE value="can get text" />
-    <MESSAGE value="clicking on list updates search" />
-    <MESSAGE value="clicking on Lists changes search text" />
-    <option name="LAST_COMMIT_MESSAGE" value="clicking on Lists changes search text" />
+    <option name="LAST_COMMIT_MESSAGE" value="can get text" />
   </component>
-
   <component name="WindowStateProjectService">
-    <state width="1419" height="293" key="GridCell.Tab.0.bottom" timestamp="1618762778510">
+    <state x="417" y="128" key="#MyApp" timestamp="1618712698905">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="293" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1618762778510" />
-    <state width="1419" height="259" key="GridCell.Tab.0.bottom/0.23.1440.834@0.23.1440.834" timestamp="1618759791836" />
-    <state width="1419" height="293" key="GridCell.Tab.0.center" timestamp="1618762778507">
+    <state x="417" y="128" key="#MyApp/0.0.1440.900@0.0.1440.900" timestamp="1618712698905" />
+    <state width="1070" height="206" key="GridCell.Tab.0.bottom" timestamp="1618725157509">
+      <screen x="0" y="23" width="1440" height="834" />
+    </state>
+    <state width="1070" height="206" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1618717055711" />
+    <state width="1070" height="206" key="GridCell.Tab.0.bottom/0.23.1440.834@0.23.1440.834" timestamp="1618725157509" />
+    <state width="1070" height="206" key="GridCell.Tab.0.center" timestamp="1618725157508">
+      <screen x="0" y="23" width="1440" height="834" />
+    </state>
+    <state width="1070" height="206" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1618717055709" />
+    <state width="1070" height="206" key="GridCell.Tab.0.center/0.23.1440.834@0.23.1440.834" timestamp="1618725157508" />
+    <state width="1070" height="206" key="GridCell.Tab.0.left" timestamp="1618725157507">
+      <screen x="0" y="23" width="1440" height="834" />
+    </state>
+    <state width="1070" height="206" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1618717055707" />
+    <state width="1070" height="206" key="GridCell.Tab.0.left/0.23.1440.834@0.23.1440.834" timestamp="1618725157507" />
+    <state width="1070" height="206" key="GridCell.Tab.0.right" timestamp="1618725157508">
+      <screen x="0" y="23" width="1440" height="834" />
+    </state>
+    <state width="1070" height="206" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1618717055710" />
+    <state width="1070" height="206" key="GridCell.Tab.0.right/0.23.1440.834@0.23.1440.834" timestamp="1618725157508" />
+    <state width="709" height="303" key="GridCell.Tab.1.bottom" timestamp="1618715458028">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="293" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1618762778507" />
-    <state width="1419" height="259" key="GridCell.Tab.0.center/0.23.1440.834@0.23.1440.834" timestamp="1618759791835" />
-    <state width="1419" height="293" key="GridCell.Tab.0.left" timestamp="1618762778505">
+    <state width="709" height="303" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1618715458028" />
+    <state width="709" height="303" key="GridCell.Tab.1.center" timestamp="1618715458026">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="293" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1618762778505" />
-    <state width="1419" height="259" key="GridCell.Tab.0.left/0.23.1440.834@0.23.1440.834" timestamp="1618759791834" />
-    <state width="1419" height="293" key="GridCell.Tab.0.right" timestamp="1618762778509">
+    <state width="709" height="303" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1618715458026" />
+    <state width="709" height="303" key="GridCell.Tab.1.left" timestamp="1618715458025">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="293" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1618762778509" />
-    <state width="1419" height="259" key="GridCell.Tab.0.right/0.23.1440.834@0.23.1440.834" timestamp="1618759791835" />
+    <state width="709" height="303" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1618715458025" />
+    <state width="709" height="303" key="GridCell.Tab.1.right" timestamp="1618715458027">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="709" height="303" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1618715458027" />
+    <state x="229" y="89" key="SettingsEditor" timestamp="1618712731725">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="229" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1618712731725" />
+    <state x="511" y="361" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1618725220958">
+      <screen x="0" y="23" width="1440" height="834" />
+    </state>
+    <state x="511" y="361" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.834@0.23.1440.834" timestamp="1618725220958" />
   </component>
 </project>
