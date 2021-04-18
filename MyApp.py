@@ -115,6 +115,7 @@ class MyApp(MDApp):
     def build(self):
 
         self.screen = Builder.load_string(screenHelp)
+        self.textField=Builder.load_string(dialogBox1)
         self.scrollSearch=ScrollView(pos_hint= {"center_y":0.3}, size_hint_y=0.4)
         self.listView=MDList()
         self.MajorName=""
@@ -129,12 +130,13 @@ class MyApp(MDApp):
         self.listView.add_widget(self.list3)
         self.listView.add_widget(self.list4)
         self.scrollSearch.add_widget(self.listView)
+        self.screen.search.add_widget(self.textField)
+
         self.searchBar=MDTextField()
         self.theme_cls.primary_palette="Orange"
         #self.testbtn=MDRectangleFlatButton(text="Test",pos_hint={"center_x":0.3,"center_y":0.5})#on_release=self.test )
         self.CurricScroll=ScrollView(pos_hint= {"center_y":0.3}, size_hint_y=0.4)
         self.CurriclsView=MDList()
-
         #Rida
         self.favbar = MDTextField(hint_text = "Favorites", text="Favorites", mode="rectangle", pos_hint = {"center_x":0.5, "center_y":.8},size_hint_x = 0.5)
         # self.screen.fav.add_widget(self.favbar)
@@ -146,9 +148,10 @@ class MyApp(MDApp):
 
         return self.screen
     def search(self):
-        self.screen.search.add_widget(self.scrollSearch)
-        self.screen.search.add_widget(self.statLabel)
-        
+        if self.HasBeenSearched==False:
+            self.screen.search.add_widget(self.scrollSearch)
+            self.screen.search.add_widget(self.statLabel)
+        print(self.textField.searchbar.text)
         self.HasBeenSearched=True
 
     def addlist(self, obj):

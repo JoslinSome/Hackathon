@@ -10,7 +10,6 @@ Screen:
 
 
     search:search
-    searchbar:searchbar
     fav:fav
     favbar:favbar
     curriculum:curriculum
@@ -24,12 +23,6 @@ Screen:
             text: 'search'
             icon: 'magnify'
             
-            MDTextField:
-                id: searchbar
-                mode: "rectangle"
-                pos_hint:{"center_x":0.5,"center_y":0.8}
-                size_hint_x:0.5
-                hint_text: "Search a major"
                 
             MDRectangleFlatButton:
                 id: searchBtn
@@ -175,25 +168,15 @@ MDLabel:
 """
 
 dialogBox1 = """
-<Content1>:
-    id: Content1
-    orientation: "vertical"
-    size_hint_y: None
-    height: "200dp"
-    BoxLayout:
-        orientation: "vertical"
-        MDLabel:
-            text: "Item Name: "+  app.tempName
-            theme_text_color: "Custom"
-            text_color: app.theme_cls.primary_color
-        MDLabel:
-            text: "Item Cost: "+  app.tempCost
-            theme_text_color: "Custom"
-            text_color: app.theme_cls.primary_color
-        MDLabel:
-            text: "Occurs Monthly on the "+ app.recurringday
-            theme_text_color: "Custom"
-            text_color: app.theme_cls.primary_color
+Content1:
+    searchbar:searchbar
+    size_hint:(0.5,1)
+    pos_hint:{"center_x":0.5,"center_y":1.25}
+
+    MDTextField:
+        id: searchbar
+        mode: "rectangle"
+        hint_text: "Search a major"
 
 <help>:
     MDLabel:
