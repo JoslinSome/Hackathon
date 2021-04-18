@@ -142,7 +142,7 @@ class MyApp(MDApp):
         self.favscroll = ScrollView(pos_hint= {"center_y":0.3}, size_hint_y=0.7)
         self.favlistview = MDList()
         self.favscroll.add_widget(self.favlistview)
-
+        self.emptyfav = MDLabel(text = "Enter a major into the search bar", font_style = "Button",pos_hint= {"center_x":0.66, "center_y": 0.7})
         self.screen.fav.add_widget(self.favscroll)
 
         return self.screen
@@ -154,10 +154,15 @@ class MyApp(MDApp):
         self.HasBeenSearched=True
 
     def addlist(self):
-        if self.textField.searchbar.text not in self.addedlist:
-            self.favlist = OneLineListItem(text = self.textField.searchbar.text)
-            self.favlistview.add_widget(self.favlist)
-            self.addedlist.append(self.textField.searchbar.text)
+        if self.textField.searchbar.text == "":
+            self.screen.fav.add_widget(self.emptyfav)
+        else:
+            if self.textField.searchbar.text not in self.addedlist:
+                self.favlist = OneLineListItem(text = self.textField.searchbar.text)
+                self.favlistview.add_widget(self.favlist)
+                self.addedlist.append(self.textField.searchbar.text)
+                self.screen.fav.remove_widget(self.emptyfav)
+
 
     def tab_switchView(self):
         self.screen.ids.panel.current=("Favorites")
