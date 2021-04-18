@@ -11,7 +11,6 @@ Screen:
 
     search:search
     fav:fav
-    curriculum:curriculum
     MDBottomNavigation:
         id: panel
         panel_color: 1, 1, 1, 1
@@ -22,6 +21,12 @@ Screen:
             text: 'search'
             icon: 'magnify'
             
+            MDTextField:
+                id: searchbar
+                mode: "rectangle"
+                pos_hint:{"center_x":0.5,"center_y":0.8}
+                size_hint_x:0.5
+                hint_text: "Search a major"
                 
             MDRectangleFlatButton:
                 id: searchBtn
@@ -35,7 +40,7 @@ Screen:
             name: 'track'
             text: 'Curriculum'
             on_tab_release: app.tab_switchTrack()
-            id:curriculum
+            id:track
             icon: 'book-open-page-variant'
             
 
@@ -52,17 +57,20 @@ Screen:
             on_tab_release: app.tab_switchView()
             icon: 'star'
             
-            MDRectangleFlatButton:
-                id: FavAdd
+            MDRoundFlatIconButton:
+                icon: "star"
                 text: "Add to Favorites"
-                pos_hint:{"center_x":0.5,"center_y":0.5}
+                text_color: 1, 1, 1, 1
+                md_bg_color: .27, .18, .08, .75
+                pos_hint:{"center_x":0.5,"center_y":0.8}
+                size_hint_x: .7
                 on_release: 
                     app.addlist()
             
     BoxLayout:
         orientation: "vertical"
         MDToolbar:
-            title: "Major Prep"
+            title: "Demo App"
 
             id: toolbar
             left_action_items: [["menu",lambda x: nav_drawer.toggle_nav_drawer()]]
@@ -160,15 +168,25 @@ MDLabel:
 """
 
 dialogBox1 = """
-Content1:
-    searchbar:searchbar
-    size_hint:(0.5,1)
-    pos_hint:{"center_x":0.5,"center_y":1.25}
-
-    MDTextField:
-        id: searchbar
-        mode: "rectangle"
-        hint_text: "Search a major"
+<Content1>:
+    id: Content1
+    orientation: "vertical"
+    size_hint_y: None
+    height: "200dp"
+    BoxLayout:
+        orientation: "vertical"
+        MDLabel:
+            text: "Item Name: "+  app.tempName
+            theme_text_color: "Custom"
+            text_color: app.theme_cls.primary_color
+        MDLabel:
+            text: "Item Cost: "+  app.tempCost
+            theme_text_color: "Custom"
+            text_color: app.theme_cls.primary_color
+        MDLabel:
+            text: "Occurs Monthly on the "+ app.recurringday
+            theme_text_color: "Custom"
+            text_color: app.theme_cls.primary_color
 
 <help>:
     MDLabel:
