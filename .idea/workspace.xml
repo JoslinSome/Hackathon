@@ -19,10 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a4f7e78-2f93-4c28-a2df-89a141f16d31" name="Default Changelist" comment="clicking on list updates search">
+    <list default="true" id="3a4f7e78-2f93-4c28-a2df-89a141f16d31" name="Default Changelist" comment="clicking on Lists changes search text">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyApp.py" beforeDir="false" afterPath="$PROJECT_DIR$/MyApp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webScraperFile.py" beforeDir="false" afterPath="$PROJECT_DIR$/webScraperFile.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -237,7 +236,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618733218941</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="clicking on Lists changes search text">
+      <created>1618761345535</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1618761345536</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -265,29 +271,29 @@
     <MESSAGE value="test1" />
     <MESSAGE value="can get text" />
     <MESSAGE value="clicking on list updates search" />
-    <option name="LAST_COMMIT_MESSAGE" value="clicking on list updates search" />
+    <MESSAGE value="clicking on Lists changes search text" />
+    <option name="LAST_COMMIT_MESSAGE" value="clicking on Lists changes search text" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1419" height="293" key="GridCell.Tab.0.bottom" timestamp="1618761186071">
+    <state width="1419" height="293" key="GridCell.Tab.0.bottom" timestamp="1618762778510">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="293" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1618761186071" />
+    <state width="1419" height="293" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1618762778510" />
     <state width="1419" height="259" key="GridCell.Tab.0.bottom/0.23.1440.834@0.23.1440.834" timestamp="1618759791836" />
-    <state width="1419" height="293" key="GridCell.Tab.0.center" timestamp="1618761186065">
+    <state width="1419" height="293" key="GridCell.Tab.0.center" timestamp="1618762778507">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="293" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1618761186065" />
+    <state width="1419" height="293" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1618762778507" />
     <state width="1419" height="259" key="GridCell.Tab.0.center/0.23.1440.834@0.23.1440.834" timestamp="1618759791835" />
-    <state width="1419" height="293" key="GridCell.Tab.0.left" timestamp="1618761186033">
+    <state width="1419" height="293" key="GridCell.Tab.0.left" timestamp="1618762778505">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="293" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1618761186033" />
+    <state width="1419" height="293" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1618762778505" />
     <state width="1419" height="259" key="GridCell.Tab.0.left/0.23.1440.834@0.23.1440.834" timestamp="1618759791834" />
-    <state width="1419" height="293" key="GridCell.Tab.0.right" timestamp="1618761186067">
+    <state width="1419" height="293" key="GridCell.Tab.0.right" timestamp="1618762778509">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="293" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1618761186067" />
+    <state width="1419" height="293" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1618762778509" />
     <state width="1419" height="259" key="GridCell.Tab.0.right/0.23.1440.834@0.23.1440.834" timestamp="1618759791835" />
   </component>
-
 </project>
