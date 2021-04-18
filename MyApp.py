@@ -130,9 +130,11 @@ class MyApp(MDApp):
         self.listView.add_widget(self.list3)
         self.listView.add_widget(self.list4)
         self.addedlist = []
+        self.favlistList=[]
         self.scrollSearch.add_widget(self.listView)
         self.searchBar=MDTextField()
         self.theme_cls.primary_palette = "Orange"
+        self.trackTrashList=[]
         #self.testbtn=MDRectangleFlatButton(text="Test",pos_hint={"center_x":0.3,"center_y":0.5})#on_release=self.test )
         self.CurricScroll=ScrollView(pos_hint= {"center_y":0.3}, size_hint_y=0.4)
         self.CurriclsView=MDList()
@@ -158,12 +160,23 @@ class MyApp(MDApp):
             self.screen.fav.add_widget(self.emptyfav)
         else:
             if self.textField.searchbar.text not in self.addedlist:
-                self.favlist = OneLineListItem(text = self.textField.searchbar.text)
+                icon2 = IconLeftWidget(icon="heart-outline")
+                icon = IconRightWidget(icon="trash-can-outline",on_release=self.Delete)
+                self.favlist = TwoLineAvatarIconListItem(text = self.textField.searchbar.text)
+                self.favlistList.append(self.favlist)
+                self.trackTrashList.append(icon)
+                self.favlist.add_widget(icon2)
+                self.favlist.add_widget(icon)
                 self.favlistview.add_widget(self.favlist)
                 self.addedlist.append(self.textField.searchbar.text)
                 self.screen.fav.remove_widget(self.emptyfav)
-
-
+    def Delete(self, touch):
+        print(touch)
+        for i in range(len(self.trackTrashList)):
+            if self.trackTrashList[i]==touch:
+                self.favlistview.remove_widget(self.favlistList[i])
+                del self.trackTrashList[i]
+                del self.favlistList[i]
     def tab_switchView(self):
         self.screen.ids.panel.current=("Favorites")
         self.Blayout=MDBoxLayout()
