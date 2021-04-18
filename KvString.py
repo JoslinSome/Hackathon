@@ -27,7 +27,7 @@ Screen:
             MDRectangleFlatButton:
                 id: searchBtn
                 text: "Search"
-                pos_hint:{"center_x":0.7,"center_y":0.8}
+                pos_hint:{"center_x":0.5,"center_y":0.45}
                 on_release: 
                     app.search()
 
@@ -166,7 +166,7 @@ MDLabel:
 dialogBox1 = """
 Content1:
     searchbar:searchbar
-    pos_hint:{"center_x":0.5,"center_y":1.35}
+    pos_hint:{"center_x":0.5,"center_y":1}
     size_hint_x:0.5
     MDTextField:
         id: searchbar

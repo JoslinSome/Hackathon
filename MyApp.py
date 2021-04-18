@@ -128,33 +128,23 @@ class MyApp(MDApp):
     def build(self):
 
         self.screen = Builder.load_string(screenHelp)
-        self.scrollSearch=ScrollView(pos_hint= {"center_y":0.3}, size_hint_y=0.4)
         self.textField= Builder.load_string(dialogBox1)
-        self.listView=MDList()
-        self.screen.ids.panel.current=("Favorites")
+       # self.screen.ids.panel.current=("Favorites")
         self.HasBeenSearched=False
-        self.list1=OneLineListItem(text="hello")
-        self.list2=OneLineListItem(text="hello")
-        self.list3=OneLineListItem(text="hello")
-        self.list4=OneLineListItem(text="hello")
-        self.statLabel=MDLabel(text="General statistics", font_style="H5",pos_hint= {"center_x":0.6, "center_y": 0.6})
-        self.listView.add_widget(self.list1)
-        self.listView.add_widget(self.list2)
-        self.listView.add_widget(self.list3)
-        self.listView.add_widget(self.list4)
         self.BeginningLabel=MDLabel(text="Search a major in search tab to obtain result output",font_style="H5", halign="center",text_color= (0, 0, 1, 1))
         self.addedlist = []
         self.favlistList=[]
-        self.scrollSearch.add_widget(self.listView)
         self.searchBar=MDTextField()
         self.theme_cls.primary_palette = "Orange"
         self.trackTrashList=[]
         self.favLists=[]
+        self.start_program = webScrape()
         #self.testbtn=MDRectangleFlatButton(text="Test",pos_hint={"center_x":0.3,"center_y":0.5})#on_release=self.test )
         self.CurricScroll=ScrollView(pos_hint= {"center_y":0.5}, size_hint_y=0.6)
         self.CurriclsView=MDList()
         self.screen.curriculum.add_widget(self.CurricScroll)
         self.screen.search.add_widget(self.textField)
+        self.tempLabel=MDLabel(text="Searching please wait",pos_hint= {"center_y":0.5})
         #Rida
         # self.screen.fav.add_widget(self.favbar)
         self.favscroll = ScrollView(pos_hint= {"center_y":0.3}, size_hint_y=0.7)
@@ -166,21 +156,23 @@ class MyApp(MDApp):
 
         return self.screen
     def search(self):
-         start_program = webScrape()
+         # if self.HasBeenSearched:
+         #     start_program.reqs_list = []
+         self.screen.search.add_widget(self.tempLabel)
          user_input1 = self.textField.searchbar.text
-         program_runs = start_program.search_major(user_input1)
+         program_runs = self.start_program.search_major(user_input1)
          if not program_runs:
              print("Could not find major, please re-enter")
          webScrape.search_major(webScrape, self.textField.searchbar.text)
-         print(start_program.reqs_list)
+         self.screen.search.remove_widget(self.tempLabel)
+
+         print(self.start_program.reqs_list)
          if not self.HasBeenSearched:
             self.CurricScroll.add_widget(self.CurriclsView)
-            self.screen.search.add_widget(self.scrollSearch)
-            self.screen.search.add_widget(self.statLabel)
             self.textField.searchbar.text
             self.screen.curriculum.remove_widget(self.BeginningLabel)
          self.HasBeenSearched=True
-         for course in start_program.reqs_list:
+         for course in self.start_program.reqs_list:
              self.tempLs=OneLineListItem(text=course)
              self.CurriclsView.add_widget(self.tempLs)
 
