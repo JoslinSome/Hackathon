@@ -148,7 +148,6 @@ class MyApp(MDApp):
         self.screen.search.add_widget(self.scrollSearch)
         self.screen.search.add_widget(self.statLabel)
         self.HasBeenSearched=True
-
     def addlist(self):
 
         self.favlist = OneLineListItem(text = "item {i}",)
