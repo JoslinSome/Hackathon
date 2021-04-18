@@ -43,14 +43,14 @@ class webScrape:
         requirements_button = self.driver.find_element_by_id("requirementstexttab")
         requirements_button.click()
         course_list = self.driver.find_element_by_class_name("sc_courselist")
-        course_odd = course_list.find('//class[text()=even]')
+        course_odd = course_list.find_elements_by_class_name('odd')
         for course in course_odd:
             try:
                 course_info = course.find_element_by_class_name("codecol")
                 course_name = course_info.find_element_by_tag_name("td")
             except:
                 pass
-        course_even = course_list.find_element_by_class_name("even")
+        course_even = course_list.find_elements_by_class_name("even")
         print(self.driver.title)
         check_answer = False
         while not check_answer:
