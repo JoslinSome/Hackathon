@@ -146,10 +146,9 @@ class MyApp(MDApp):
 
         return self.screen
     def search(self):
-        pass
-        self.screen.search.add_widget(self.scrollSearch)
-        self.screen.search.add_widget(self.statLabel)
-        print(self.textField.searchbar.text)
+        if not self.HasBeenSearched:
+            self.screen.search.add_widget(self.scrollSearch)
+            self.screen.search.add_widget(self.statLabel)
 
         self.HasBeenSearched=True
 
