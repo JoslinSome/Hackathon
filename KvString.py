@@ -11,6 +11,7 @@ Screen:
 
     search:search
     fav:fav
+    curriculum:curriculum
     MDBottomNavigation:
         id: panel
         panel_color: 1, 1, 1, 1
@@ -21,17 +22,12 @@ Screen:
             text: 'search'
             icon: 'magnify'
             
-            MDTextField:
-                id: searchbar
-                mode: "rectangle"
-                pos_hint:{"center_x":0.5,"center_y":0.8}
-                size_hint_x:0.5
-                hint_text: "Search a major"
+        
                 
             MDRectangleFlatButton:
                 id: searchBtn
                 text: "Search"
-                pos_hint:{"center_x":0.7,"center_y":0.7}
+                pos_hint:{"center_x":0.7,"center_y":0.8}
                 on_release: 
                     app.search()
 
@@ -40,7 +36,7 @@ Screen:
             name: 'track'
             text: 'Curriculum'
             on_tab_release: app.tab_switchTrack()
-            id:track
+            id:curriculum
             icon: 'book-open-page-variant'
             
 
@@ -168,119 +164,12 @@ MDLabel:
 """
 
 dialogBox1 = """
-<Content1>:
-    id: Content1
-    orientation: "vertical"
-    size_hint_y: None
-    height: "200dp"
-    BoxLayout:
-        orientation: "vertical"
-        MDLabel:
-            text: "Item Name: "+  app.tempName
-            theme_text_color: "Custom"
-            text_color: app.theme_cls.primary_color
-        MDLabel:
-            text: "Item Cost: "+  app.tempCost
-            theme_text_color: "Custom"
-            text_color: app.theme_cls.primary_color
-        MDLabel:
-            text: "Occurs Monthly on the "+ app.recurringday
-            theme_text_color: "Custom"
-            text_color: app.theme_cls.primary_color
-
-<help>:
-    MDLabel:
-        text: "Track your recurring monthly payments like Rent and Netflix. Click on the plus icon at the bottom left of the screen to add a recurring item!"
-        theme_text_color: "Secondary"
-        pos_hint: {"center_y": 0.2}
-<helpTrack>:
-    MDLabel:
-        text: "Keep track of the money you gain and spend, press the buttons below to create an Item"
-        theme_text_color: "Secondary"
-        pos_hint: {"center_y": 0.2}
-<helpOverview>:
-    MDLabel:
-        text: "View your monthly spendings so far. First create a spending item on the reccuring or track tab before being able to view"
-        theme_text_color: "Secondary"
-        pos_hint: {"center_y": 0.2}
-<helpSave>:
-    MDLabel:
-        text: "Want to save up for something?, create a new item and keep track of how much hou have saved"
-        theme_text_color: "Secondary"
-        pos_hint: {"center_y": 0.2}
-<Existing>:
-    MDLabel:
-        text: "The Item you entered already exists. Please change its Name" 
-<Content2>:
-    title: "hello" 
-    name: name
-    cost: cost
-    BoxLayout:
-        spacing: "20dp"
-        MDTextField: 
-            id: name
-            hint_text: "Item Name:"
-        MDTextField:
-            hint_text: "Item Cost:"
-            id:cost
-            text: "$"
-
-<Content3>:
-    month:month
+Content1:
+    searchbar:searchbar
+    pos_hint:{"center_x":0.5,"center_y":1.35}
+    size_hint_x:0.5
     MDTextField:
-        id: month
-        hint_text: "Amount"
-        text: "$"
-
-<Content4>:
-    title: "hello" 
-    name: name
-    cost: cost
-    BoxLayout:
-        spacing: "20dp"
-        MDTextField: 
-            id: name
-            hint_text: "Item Name:"
-        MDTextField:
-            hint_text: "Item Cost:"
-            id:cost
-            text: "$"
-<Content5>:
-    title: "hello" 
-    MDLabel:
-        text: "The Item you entered already exists, would you like to add onto it? "
-        theme_text_color: "Secondary"
-        pos_hint: {"center_y": 0.6}
-
-<Warning>:
-    MDLabel:
-        text: "Are you sure you want to delete this item? "
-        theme_text_color: "Secondary"
-        pos_hint: {"center_y": 0.6}
-<Warning1>:
-    MDLabel:
-        text: "Are you sure you want to delete this item? "
-        theme_text_color: "Secondary"
-        pos_hint: {"center_y": 0.6}
-<Add>:
-    title: "hello" 
-    cost: cost
-    BoxLayout:
-        spacing: "20dp"
-        MDTextField:
-            hint_text: "Add amount:"
-            id:cost
-            text: "$"
-
-"""
-dialogBox2 = """
-Content2:
-    scroll: scroll
-"""
-viewScreen = """
-<viewAll>:
-    ScrollView:
-"""
-
-pannel = """
+        id: searchbar
+        mode: "rectangle"
+        hint_text: "Search a major"
 """
