@@ -58,6 +58,7 @@ class webScrape:
             if user_input == "0":
                 check_answer = True
                 self.driver.close()
+                print("Hello")
 
 
 start_program = webScrape()
