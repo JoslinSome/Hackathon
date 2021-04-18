@@ -35,9 +35,8 @@ from kivymd.uix.textfield import MDTextField, MDTextFieldRect
 from kivy.uix.screenmanager import Screen, ScreenManager, FadeTransition, NoTransition, FallOutTransition
 from kivymd.uix.expansionpanel import MDExpansionPanel, MDExpansionPanelOneLine, MDExpansionPanelThreeLine
 from kivy.app import App
-print("dsc")
 SizeList=[]
-
+Clock.max_iteration = 10
 #Config.set('graphics','resizable',0)
 Window.size=(400,600)
 
@@ -116,7 +115,9 @@ class MyApp(MDApp):
 
         self.screen = Builder.load_string(screenHelp)
         self.scrollSearch=ScrollView(pos_hint= {"center_y":0.3}, size_hint_y=0.4)
+        self.textField= Builder.load_string(dialogBox1)
         self.listView=MDList()
+        self.screen.ids.panel.current=("Favorites")
         self.HasBeenSearched=False
         self.list1=OneLineListItem(text="hello")
         self.list2=OneLineListItem(text="hello")
@@ -133,7 +134,7 @@ class MyApp(MDApp):
         #self.testbtn=MDRectangleFlatButton(text="Test",pos_hint={"center_x":0.3,"center_y":0.5})#on_release=self.test )
         self.CurricScroll=ScrollView(pos_hint= {"center_y":0.3}, size_hint_y=0.4)
         self.CurriclsView=MDList()
-
+        self.screen.search.add_widget(self.textField)
         #Rida
         # self.screen.fav.add_widget(self.favbar)
         self.favscroll = ScrollView(pos_hint= {"center_y":0.3}, size_hint_y=0.4)
@@ -145,9 +146,13 @@ class MyApp(MDApp):
 
         return self.screen
     def search(self):
+        pass
         self.screen.search.add_widget(self.scrollSearch)
         self.screen.search.add_widget(self.statLabel)
+        print(self.textField.searchbar.text)
+
         self.HasBeenSearched=True
+
     def addlist(self):
 
         self.favlist = OneLineListItem(text = "item {i}",)
@@ -163,7 +168,6 @@ class MyApp(MDApp):
         self.BeginningLabel=MDLabel(text="Search a major in search tab to obtain result output",font_style="H5", halign="center",text_color= (0, 0, 1, 1))
         if not self.HasBeenSearched:
             self.screen.curriculum.add_widget(self.BeginningLabel)
-    
 
     def tab_switchRecur(self):
         self.screen.ids.panel.current=("search")
