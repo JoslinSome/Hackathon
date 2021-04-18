@@ -142,6 +142,7 @@ class MyApp(MDApp):
         self.listView.add_widget(self.list2)
         self.listView.add_widget(self.list3)
         self.listView.add_widget(self.list4)
+        self.BeginningLabel=MDLabel(text="Search a major in search tab to obtain result output",font_style="H5", halign="center",text_color= (0, 0, 1, 1))
         self.addedlist = []
         self.favlistList=[]
         self.scrollSearch.add_widget(self.listView)
@@ -150,8 +151,9 @@ class MyApp(MDApp):
         self.trackTrashList=[]
         self.favLists=[]
         #self.testbtn=MDRectangleFlatButton(text="Test",pos_hint={"center_x":0.3,"center_y":0.5})#on_release=self.test )
-        self.CurricScroll=ScrollView(pos_hint= {"center_y":0.3}, size_hint_y=0.4)
+        self.CurricScroll=ScrollView(pos_hint= {"center_y":0.5}, size_hint_y=0.6)
         self.CurriclsView=MDList()
+        self.screen.curriculum.add_widget(self.CurricScroll)
         self.screen.search.add_widget(self.textField)
         #Rida
         # self.screen.fav.add_widget(self.favbar)
@@ -170,11 +172,17 @@ class MyApp(MDApp):
          if not program_runs:
              print("Could not find major, please re-enter")
          webScrape.search_major(webScrape, self.textField.searchbar.text)
+         print(start_program.reqs_list)
          if not self.HasBeenSearched:
+            self.CurricScroll.add_widget(self.CurriclsView)
             self.screen.search.add_widget(self.scrollSearch)
             self.screen.search.add_widget(self.statLabel)
             self.textField.searchbar.text
+            self.screen.curriculum.remove_widget(self.BeginningLabel)
          self.HasBeenSearched=True
+         for course in start_program.reqs_list:
+             self.tempLs=OneLineListItem(text=course)
+             self.CurriclsView.add_widget(self.tempLs)
 
     def addlist(self):
         if self.textField.searchbar.text == "":
@@ -218,7 +226,6 @@ class MyApp(MDApp):
     def tab_switchTrack(self):
         self.screen.ids.panel.current=("track")
         self.HasBeenClicked=False
-        self.BeginningLabel=MDLabel(text="Search a major in search tab to obtain result output",font_style="H5", halign="center",text_color= (0, 0, 1, 1))
         if not self.HasBeenSearched:
             self.screen.curriculum.add_widget(self.BeginningLabel)
 
