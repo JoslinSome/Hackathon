@@ -54,7 +54,7 @@ from webScraperFile import webScrape
 SizeList=[]
 Clock.max_iteration = 10
 #Config.set('graphics','resizable',0)
-Window.size=(400,600)
+Window.size=(1000,1000)
 
 class MenuScreen(Screen):
     pass
